@@ -12,7 +12,7 @@ Run `mvn jetty:run` to start application in embedded Jetty.
 
 Run `mvn clean install` or `mvn test` (`test` is includded in the build lifecycle before `install`)
 
-## REST endpoint
+## REST endpoints
 
 `GET http://localhost:8080/currency-backend/trades` - get all trades
 
