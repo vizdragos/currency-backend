@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--<property file="config.properties"/>-->
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} %-5p [%t] %c{3} - %m%n</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %c{3} - %m%n</Pattern>
+        </layout>
+        <file>/logs/currency_backend.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!--daily rollover-->
+            <fileNamePattern>/logs/currency_backend.%d{yyyy-ww}.log</fileNamePattern>
+            <!--30 days of history-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+
+    <logger name="org.springframework" level="INFO"/>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="console"/>
+        <appender-ref ref="fileAppender"/>
+    </root>
+
+</configuration>
