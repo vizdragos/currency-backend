@@ -1,5 +1,9 @@
 # currency-backend
 
+## Prerequisites
+- Maven 3
+- JDK 7
+
 ## Build for deployment (for example in `Tomcat`)
 
 Run `mvn clean install` to create a war file in target/ which can be deployed to an application server.
