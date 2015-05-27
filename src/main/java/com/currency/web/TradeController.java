@@ -1,5 +1,6 @@
 package com.currency.web;
 
+import com.currency.aop.socket.NotifyClients;
 import com.currency.model.Trade;
 import com.currency.service.TradeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class TradeController {
 	@Autowired
 	private TradeService tradeService;
 
+	@NotifyClients
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Trade createTrade(@RequestBody Trade trade) {
